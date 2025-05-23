@@ -23,8 +23,13 @@ public class appointmentService {
         return appointmentRepository.findByStatus(status);
     }
 
+    public List<Appointment> getAppointmentsByUserEmail(String userEmail) {
+        return appointmentRepository.findByUserEmail(userEmail);
+    }
+
     public Appointment createAppointment(Appointment appointment) {
         if (appointment.getDate().before(new Date())) {
+            appointment.setStatus("Rejected");
             throw new IllegalArgumentException("Appointment date cannot be in the past.");
         }
         appointment.setStatus("Confirmed");
@@ -41,7 +46,4 @@ public class appointmentService {
             throw new RuntimeException("Appointment not found.");
         }
     }
-
-    
-
 }

@@ -14,8 +14,7 @@ public class doctorService {
     private DoctorRepository doctorRepository;
 
     public List<Doctor> getAllDoctors() {
-        return doctorRepository.findAll();
-    }
+        return doctorRepository.findAll();    }
 
     public Doctor getDoctorById(String id) {
         return doctorRepository.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found"));
