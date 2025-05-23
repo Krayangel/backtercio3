@@ -1,5 +1,7 @@
 package eci.cvds.ecisanitas.repository;
 
-public interface DocotrRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+import eci.cvds.ecisanitas.model.Doctor;
 
+public interface DoctorRepository extends MongoRepository<Doctor, String> {
 }
